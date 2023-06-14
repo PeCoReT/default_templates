@@ -1,0 +1,4 @@
+- id: web-application-small
+  name: Web Application Checklist
+  categories:
+    - password-reset-function
