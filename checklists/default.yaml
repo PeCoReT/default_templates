@@ -1,7 +1,0 @@
-id: default-checklist
-name: Default Checklist
-
-tasks:
-  - sql-injection
-  - broken-access-control
-  - subdomain-takeover
