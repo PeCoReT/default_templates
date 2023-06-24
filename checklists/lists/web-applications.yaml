@@ -1,4 +1,5 @@
 - id: web-application-small
-  name: Web Application Checklist
+  name: Web Application Checklist - Small
   categories:
     - password-reset-function
+    - security-headers
