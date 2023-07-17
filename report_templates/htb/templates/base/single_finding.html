@@ -1,0 +1,53 @@
+<div class="finding page-break-after">
+  <h3 id="finding-{{ finding.internal_id }}">
+    {{ finding.internal_id }}. {{ finding.vulnerability.name }} - <span
+    class="color-{{ finding.get_severity_display().lower() }}">{{ finding.get_severity_display() }}</span>
+  </h3>
+
+  <table class="table-bordered">
+    <tbody>
+    <tr>
+      <th>CWE</th>
+      <td>{{ finding.vulnerability.cwe_id }}</td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td>{{ report_helpers.bleach_md(finding.vulnerability.description)|safe }}</td>
+    </tr>
+    <tr>
+      <th>Asset</th>
+      <td>
+        {{ finding.component.name }}
+      </td>
+    </tr>
+    <tr>
+      <th>Recommendation</th>
+      <td>
+        {% if finding.recommendation %}
+        {{ report_helpers.bleach_md(finding.recommendation)|safe }}
+        {% else %}
+        {{ report_helpers.bleach_md(finding.vulnerability.recommendation)|safe }}
+        {% endif %}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h4>{{ _('Finding Evidence') }}</h4>
+  <div class="finding-evidence">
+    {% for proof in finding.proof_set.all() %}
+    {{ report_helpers.bleach_md(proof.text)|safe }}
+    {% if proof.image %}
+    <div class="proof-with-image">
+      <div class="image-wrapper">
+        <img src="{{ proof.base64_encoded_image()|safe }}" style="width: 100%;max-width: 100%; height:auto;">
+      </div>
+      <div class="caption">
+        <span class="label">Figure</span>
+        <span>{{ proof.image_caption }}</span>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>

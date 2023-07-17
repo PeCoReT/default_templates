@@ -1,0 +1,20 @@
+$background-color: #141d2b;
+$color-default: #fff;
+$color-primary: #9fef00;
+$color-secondary: #a4b1cd;
+
+// severities
+$color-critical: #9c1720;
+$color-high: #d13c0f;
+$color-medium: #e8971e;
+$color-low: #2075f5;
+$color-informational: #059D1D;
+
+/* page margins */
+$page-margin-top: 30mm;
+$page-margin-bottom: 20mm;
+$page-margin-right: 16mm;
+$page-margin-left: 16mm;
+$page-height: 297mm;
+
+$page-content-height: $page-height - $page-margin-bottom - $page-margin-top;

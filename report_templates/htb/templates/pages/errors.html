@@ -1,0 +1,10 @@
+<div class="page-break-after">
+  <h2>Report Errors</h2>
+  <div id="report-error">
+    <ul>
+      {% for error in variant.get_errors() %}
+      <li class="report-error"><a href="{{ error.url }}"><span>{{ error.message }}</span></a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

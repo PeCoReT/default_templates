@@ -1,0 +1,72 @@
+<html>
+{% include './base/head.html' %}
+
+<body>
+{% include './pages/advisory/cover.html' %}
+
+{% include './pages/statement_confidentiality.html' %}
+<div class="page-break-after"></div>
+
+<div id="advisory">
+  <h1>{{ advisory.get_advisory_id_display() }}. {{ advisory.vulnerability.name }}
+  </h1>
+
+  <table class="table-bordered">
+    <tbody>
+    <tr>
+      <th>Severity</th>
+      <td class="color-{{ advisory.get_severity_display().lower() }}">
+        <strong>{{ advisory.get_severity_display().capitalize() }}</strong>
+      </td>
+    </tr>
+    <tr>
+      <th>Product</th>
+      <td>{{ advisory.product }} (by {{ advisory.vendor_name }})</td>
+    </tr>
+    <tr>
+      <th>Affected Version(s)</th>
+      <td>{{ advisory.affected_versions }}</td>
+    </tr>
+    <tr>
+      <th>Fixed Version(s)</th>
+      <td>{% if advisory.fixed_version %}{{ advisory.fixed_version }}{% else %}-{% endif %}</td>
+    </tr>
+    <tr>
+      <th>CVE-ID</th>
+      <td>{% if advisory.cve_id %}{{ advisory.cve_id }}{% else %}-{% endif %}</td>
+    </tr>
+    <tr>
+      <th>Discovered by</th>
+      <td>{{ advisory.user.report_display_name }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Description</h3>
+  {{ report_helpers.bleach_md(advisory.description)|safe }}
+
+  <h3>Proof of Concept</h3>
+  <div class="finding-evidence">
+    {% for proof in advisory.advisoryproof_set.all() %}
+    {{ report_helpers.bleach_md(proof.text)|safe }}
+    {% if proof.image %}
+    <div class="proof-with-image">
+      <div class="image-wrapper">
+        <img src="{{ proof.base64_encoded_image()|safe }}" style="width: 100%;max-width: 100%; height:auto;">
+      </div>
+      <div class="caption">
+        <span class="label">Figure</span>
+        <span>{{ proof.image_caption }}</span>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+
+  <h3>Recommendation</h3>
+  {{ report_helpers.bleach_md(advisory.recommendation)|safe }}
+
+
+</div>
+</body>
+</html>

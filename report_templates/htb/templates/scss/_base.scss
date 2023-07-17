@@ -1,0 +1,142 @@
+
+html {
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 300;
+  color: $color-default;
+  line-height: 1.5em;
+}
+
+body {
+  counter-reset: figures;
+}
+
+h1 {
+  color: $color-primary;
+  font-size: 25px;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+code {
+  display: inline;
+  padding: 1px 2px;
+  font-family: monospace;
+  font-size: 12px;
+  background-color: #e2e2e236;
+  border-radius: 3px;
+  border: 1px solid #bbbbbb;
+}
+
+
+pre code {
+  display: block;
+  padding: 8px;
+  margin-bottom: 8px;
+  white-space: pre-wrap;
+  line-height: 1.2em;
+  word-wrap: break-word;
+}
+
+
+// base classes
+
+.color-primary {
+  color: $color-primary;
+}
+
+.color-secondary {
+  color: $color-secondary;
+}
+
+.color-black {
+  color: #000000;
+}
+
+.bg-primary {
+  background-color: $color-primary !important;
+}
+
+.page-title {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.chapter {
+  page-break-before: always;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  td, th {
+    padding: 5px;
+    text-align: left
+  }
+}
+
+.table-striped {
+  color: #000000;
+
+  tr:nth-child(even) {
+    background-color: #a4b1cd;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #bfc8dc;
+  }
+}
+
+.mt-10 {
+  margin-top: 10mm;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+.table-bordered {
+  border-collapse: collapse;
+
+  table, th, td {
+    border: 1px solid $color-secondary;
+    border-collapse: collapse;
+  }
+}
+
+.page-break-after {
+  page-break-after: always !important;
+  break-after: always;
+}
+
+// severities
+.color-critical {
+  color: $color-critical !important;
+}
+
+.color-high {
+  color: $color-high !important;
+}
+
+.color-medium {
+  color: $color-medium !important;
+}
+
+.color-low {
+  color: $color-low !important;
+}
+
+.color-informational {
+  color: $color-informational !important;
+}
+
+.codehilite .linenos {
+  padding-right: 20px;
+}

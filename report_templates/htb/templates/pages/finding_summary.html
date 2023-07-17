@@ -1,0 +1,64 @@
+<div class="chapter">
+  <h1 class="page-title" id="finding-summary">{{ _('Finding Summary') }}</h1>
+  <p>
+    During the course of testing, {{ REPORT_COMPANY_INFORMATION.name }} uncovered a total of {{ findings.count() }} that
+    pose a risk
+    to the tested assets.
+    The below table provides
+    a summary of the findings by severity level.
+  </p>
+
+  <table class="table-bordered table-striped">
+    <thead>
+    <tr class="bg-primary">
+      <th colspan="7" class="text-center">{{ _('Finding Severity') }}</th>
+    </tr>
+    <tr>
+      <th>{{ _('Critical') }}</th>
+      <th>{{ _('High') }}</th>
+      <th>{{ _('Medium') }}</th>
+      <th>{{ _('Low') }}</th>
+      <th>{{ _('Informational') }}</th>
+      <th>{{ _('Fixed') }}</th>
+      <th>{{ _('Total') }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{ findings.with_severity('Critical').count() }}</td>
+      <td>{{ findings.with_severity('High').count() }}</td>
+      <td>{{ findings.with_severity('Medium').count() }}</td>
+      <td>{{ findings.with_severity('Low').count() }}</td>
+      <td>{{ findings.with_severity('Informational').count() }}</td>
+      <td>{{ findings.is_fixed().count() }}</td>
+      <td>{{ findings.count() }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  Below is a high-level overview of each finding identified during testing. These findings are covered in depth in the
+  Technical Findings Details section of this report.
+
+  <table class="table-bordered table-striped finding-summary-table">
+    <thead>
+    <tr class="bg-primary">
+      <th>{{ _('Finding #') }}</th>
+      <th>{{ _('Severity') }}</th>
+      <th>{{ _('Vulnerability Name') }}</th>
+      <th>{{ _('Component') }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for finding in findings %}
+    <tr>
+      <td><a href="#finding-{{ finding.internal_id }}">#{{ finding.internal_id }}</a></td>
+      <td class="color-{{ finding.get_severity_display().lower() }}">
+        <strong>{{ finding.get_severity_display() }}</strong>
+      </td>
+      <td>{{ finding.vulnerability.name }}</td>
+      <td>{{ finding.component.name }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>

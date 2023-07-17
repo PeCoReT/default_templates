@@ -1,0 +1,12 @@
+<div id="cover">
+
+  <h1 class="title">{{ REPORT_COMPANY_INFORMATION.name }}</h1>
+
+  <div class="subtitle">{{ advisory.vulnerability.name }} in {{ advisory.product }}</div>
+
+  <div class="footer">
+    <p class="color-primary customer">{{ advisory_vendor_name }}</p>
+    <p class="color-secondary">{{ now }}</p>
+    <p class="color-secondary"><i>Advisory {{ advisory.get_advisory_id_display() }}</i></p>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.finding-summary-table {
+  a {
+    color: #000000;
+  }
+}
+
+
+.finding-evidence {
+  .proof-with-image {
+    page-break-inside: avoid;
+  }
+
+  .image-wrapper {
+    text-align: center;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    max-height: $page-content-height / 2;
+    margin-bottom: 5px;
+  }
+
+  .caption {
+    text-align: center;
+    counter-increment: figures;
+    margin-top: 0.5em;
+
+    .label {
+      &:after {
+        content: counter(figures) ":";
+        margin-right: 5px;
+        margin-left: 3px;
+      }
+    }
+  }
+
+}

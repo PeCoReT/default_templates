@@ -1,0 +1,38 @@
+<div class="chapter">
+  <h1 class="page-title" id="executive-summary">{{ _('Executive Summary') }}</h1>
+
+  <div id="executive-summary-evaluation">
+    {{ report_helpers.bleach_md(report_document.report.evaluation)|safe }}
+  </div>
+</div>
+
+<div class="chapter">
+  <h1 class="page-title" id="scope">{{ _('Scope') }}</h1>
+  The scope of this assessment is listed in the table below.
+
+  <table class="table-striped table-bordered">
+    <thead>
+    <tr class="bg-primary">
+      <th>Asset</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for asset in variant.get_assets() %}
+    <tr>
+      <td>{{ asset.name }}</td>
+      <td>{{ asset.description }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="chapter">
+  <h1 class="page-title">{{ _('Assessment Overview and Recommendations') }}</h1>
+
+  <div id="executive-summary-recommendation">
+    {{ report_helpers.bleach_md(report_document.report.recommendation)|safe }}
+
+  </div>
+</div>

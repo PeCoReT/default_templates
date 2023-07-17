@@ -1,0 +1,31 @@
+@page no-chapter {
+  @top-left {
+    background: none;
+    content: none
+  }
+  @top-center {
+    content: none !important
+  }
+  @top-right {
+    content: none !important
+  }
+}
+
+@page {
+  size: a4 portrait;
+  margin: 3cm 1cm 2cm 1cm;
+  background-color: $background-color;
+
+  @top-right {
+    content: " ";
+    background: url(file://images/logo.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 12mm;
+    width: 53mm;
+    margin-bottom: 8mm;
+    margin-right: -6mm;
+    background-position: left center;
+  }
+
+}

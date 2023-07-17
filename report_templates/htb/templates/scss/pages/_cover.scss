@@ -1,0 +1,54 @@
+@page cover-page {
+  background-size: cover;
+  margin: 0;
+  margin-left: $page-margin-left;
+  margin-right: $page-margin-right;
+  margin-bottom: 10mm;
+
+  @bottom-right {
+    content: none !important;
+  }
+  @bottom-center {
+    border-top: 2px $color-secondary dotted !important;
+    width: 100% !important;
+    content: 'Confidential' !important;
+  }
+  @bottom-left {
+    content: none !important;
+  }
+}
+
+#cover {
+  page-break-after: always;
+  page: cover-page;
+  margin-top: 60mm;
+  margin-left: auto;
+  margin-right: auto;
+
+  .title {
+    font-size: 50px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 40px;
+    line-height: 1.5;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 30mm;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 5cm;
+    font-weight: normal;
+    width: 100%;
+    text-align: end;
+
+    .customer {
+      font-size: 30px;
+    }
+  }
+}
