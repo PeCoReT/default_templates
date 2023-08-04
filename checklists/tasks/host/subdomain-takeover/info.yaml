@@ -1,5 +1,0 @@
-id: subdomain-takeover
-name: Subdomain Takeover
-
-conditions:
-  - host.dns: '.*'

@@ -1,4 +1,4 @@
 id: security-headers
 name: Security Headers
 items:
-  - x-frame-options
+  - x-frame-options-header

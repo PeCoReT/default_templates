@@ -3,3 +3,9 @@
   categories:
     - password-reset-function
     - security-headers
+
+
+- id: web-cms-wordpress
+  name: Wordpress CMS
+  categories:
+    - wordpress-cms

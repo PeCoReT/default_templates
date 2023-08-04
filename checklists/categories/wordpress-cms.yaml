@@ -1,0 +1,6 @@
+id: wordpress-cms
+name: Wordpress CMS
+items:
+  - wordpress-enum-plugins
+  - wordpress-enum-themes
+  - weak-login

@@ -1,0 +1,7 @@
+id: web-generic-vulns
+name: Generic Web Vulnerabilities
+items:
+  - sql-injection
+  - server-side-template-injection
+  - cross-site-scripting
+  - broken-access

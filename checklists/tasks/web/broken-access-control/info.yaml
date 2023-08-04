@@ -1,5 +1,0 @@
-id: broken-access-control
-name: Broken Access Control
-
-conditions:
-  - web_application.name: '.*'

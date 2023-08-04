@@ -1,5 +1,0 @@
-id: sql-injection
-name: SQL-Injection
-
-conditions:
-  - web_application.name: '.*'
