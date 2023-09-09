@@ -47,20 +47,8 @@
 
   <h3>Proof of Concept</h3>
   <div class="finding-evidence">
-    {% for proof in advisory.advisoryproof_set.all() %}
-    {{ report_helpers.bleach_md(proof.text)|safe }}
-    {% if proof.image %}
-    <div class="proof-with-image">
-      <div class="image-wrapper">
-        <img src="{{ proof.base64_encoded_image()|safe }}" style="width: 100%;max-width: 100%; height:auto;">
-      </div>
-      <div class="caption">
-        <span class="label">Figure</span>
-        <span>{{ proof.image_caption }}</span>
-      </div>
-    </div>
-    {% endif %}
-    {% endfor %}
+      {{ report_helpers.bleach_md(advisory.report_proof_text, allow_images=True)|safe }}
+
   </div>
 
   <h3>Recommendation</h3>

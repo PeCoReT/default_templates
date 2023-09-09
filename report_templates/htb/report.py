@@ -39,7 +39,7 @@ class PentestPDFReport(report_types.PentestPDFReport):
         errors = []
         findings = self.get_context()["findings"]
         for finding in findings:
-            if not finding.proof_set.all():
+            if not finding.proof_text:
                 error = ReportError("Finding is missing a proof!", f"#finding-{finding.internal_id}")
                 errors.append(error)
         return errors
